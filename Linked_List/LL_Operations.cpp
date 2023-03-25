@@ -16,6 +16,7 @@ using namespace std;
 //? Reversing_by_Elements
 //? Reversing_by_Links
 //? R_Reversing_by_links
+//? reverseBySwap
 //? Concatenate
 //? Merge
 //? Is_Loop
@@ -301,6 +302,18 @@ void R_Reversing_by_links(Node *p, Node*q)
         first = q;
     }
 }
+
+Node* reverseBySwap(Node* head) {
+        Node* curr = head, *prev=NULL;
+
+        while(curr != NULL)
+        {
+            swap(curr->next, prev);
+            swap(prev, curr);
+        }
+
+        return prev;
+    }
 
 void Concatenate(Node *p, Node *q)
 {
