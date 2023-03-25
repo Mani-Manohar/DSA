@@ -1,0 +1,20 @@
+
+//This below function will create Adjacency List if we're given a tree, so that we can apply BFS or DFS.
+
+//Parameters: root of tree, parent of root(which is initially NULL), map to store adjList.
+void createAdjList(TreeNode* curr,TreeNode* parent, unordered_map<int, vector<int>> &adj)
+    {
+        if(curr)
+        {
+            if(parent != NULL){
+                adj[curr->val].push_back(parent->val);
+                adj[parent->val].push_back(curr->val);
+            }
+            createAdjList(curr->left, curr, adj);
+            createAdjList(curr->right, curr, adj);
+        }
+    }
+    
+    //function call
+    //parameters passed: TreeNode* root, parent=NULL, unordered_map<int, vector<int>> adj;
+    createAdjList(root,NULL,adj);
